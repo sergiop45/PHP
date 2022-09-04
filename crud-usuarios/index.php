@@ -71,12 +71,16 @@ function mensagem() {
                 break;
 
                 case "editar":
-                    include("editar-usuarios.php");
-                break;    
-
+                    include("editar-usuario.php");
+                break; 
+                
                 case "salvar":
                   include("salvar-usuario.php");
-                break;  
+                break; 
+                
+                case "deletar":
+                  include("deletar-usuario.php");
+                break; 
 
                 default:
                     mensagem();

@@ -25,8 +25,12 @@ if($qtd > 0 ) {
         echo "<td>".$row->email."</td>";
         echo "<td>".$row->data_nasc."</td>";
         echo "<td>
-            <button class='btn btn-success'>Editar</button>
-            <button class='btn btn-danger'>Deletar</button>
+            <button class='btn btn-success'
+            onClick=\"location.href='?page=editar&id=".$row->id."'\"
+            >Editar</button>
+            <button class='btn btn-danger' 
+            onClick=\"location.href='?page=deletar&id=".$row->id."'\"
+            >Deletar</button>
         </td>";
         echo "</tr>";
 

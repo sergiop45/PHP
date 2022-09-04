@@ -22,7 +22,33 @@
                 print "<script>location.href='?page=novo';</script>";
             }
 
-        break;    
+        break;
+
+        case 'editar':
+            $id_usuario = $_REQUEST['id'];
+            $nome = $_POST['nome'];
+            $email = $_POST['email'];
+            $senha = $_POST['senha'];
+            $data_nasc = $_POST['datanasc'];
+
+            
+            $sql = "UPDATE usuarios SET nome = '".$nome."', email = '".$email."', senha = '".$senha."', data_nasc = '".$data_nasc."' WHERE id = '".$id_usuario."' ;";
+            
+
+            $res = $conn -> query($sql);
+
+            if($res == true) {
+                print "<script>alert('Usuario Editado com sucesso!');</script>";
+                print "<script>location.href='?page=listar';</script>"; 
+            } else {
+                print "<script>alert('Erro ao Editar usuario!');</script>";
+                print "<script>location.href='?page=novo';</script>";
+            }
+            
+
+        break;  
+        
+        
 
     }
 

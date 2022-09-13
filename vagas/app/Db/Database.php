@@ -10,7 +10,7 @@ class Database {
 
     const NAME = 'CRUD_vagas';
 
-    const USER = 'root2';
+    const USER = 'root';
 
     const PASS = '123456';
 
@@ -22,7 +22,7 @@ class Database {
     private $connection;
 
     public function __construct($table = null) {
-        $this->$table = $table;
+        $this->table = $table;
         $this->setConnection();
 
     }
@@ -36,6 +36,33 @@ class Database {
         catch(PDOException $e){
             die('ERROR: '.$e->getMessage());
         }
+
+    }
+
+    public function execute($query, $params = []) {
+        try {
+            //code...
+            $statement = $this->connection->prepare($query);
+            $statement->execute($params);
+            return $statement;
+        } catch(PDOException $e){
+            die('ERROR: '.$e->getMessage());
+        }
+    }
+
+    //metodo para inserir dados no banco
+    public function insert($values) {
+        //dados da query
+        $fields = array_keys($values);
+        $binds = array_pad([], count($fields), '?');
+
+
+        //$query = 'INSERT INTO '.$this->$table.' ('.implode(',',$fields).') VALUES ('.implode(',',$binds).') ';
+        $query = 'INSERT INTO '.$this->table.' ('.implode(',',$fields).') VALUES ('.implode(',',$binds).')';
+        $this->execute($query, array_values($values));
+
+        //retorna o id inserido
+        return $this->connection->lastInsertId();
 
     }
 

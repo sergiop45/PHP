@@ -34,6 +34,13 @@ class Vaga {
 
         //enviando dados para o banco
         $obDatabase = new Database('vagas');
+        $this->id = $obDatabase->insert([
+            'titulo'=> $this->titulo,
+            'descricao' => $this->descricao,
+            'ativo' => $this->ativo,
+            'data' => $this->data
+
+        ]);
 
         print '<pre>'; print_r($obDatabase); print '</pre>';
 

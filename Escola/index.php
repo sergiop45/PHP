@@ -1,23 +1,24 @@
 <?php 
 
+include('Controller/AlunoController.php');
+
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-
 switch ($url) {
-    case '/':
+    case '/app/':
         echo 'pagina inicial';
         break;
 
-    case '/cadastro':
-        echo 'Cadastro de Aluno';
+    case '/app/cadastro':
+        AlunoController::form();
         break;    
 
-    case '/listagem':
-        echo 'Listagem de alunos';
+    case '/app/listagem':
+        AlunoController::index();
         break;    
 
     default:
-        echo 'Pagina inexistente!';
+        echo 'Not Found! Erro 404';
         break;
 }
 

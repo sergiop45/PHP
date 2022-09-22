@@ -13,7 +13,7 @@
         <h3>Formulario de Cadastro</h3>
         <br>
 
-        <form action="" method="post" id="formulario">
+        <form action="aluno/save" method="post" id="formulario">
 
             <div class="label-input">
                 <label for="">Nome:</label>
@@ -21,12 +21,17 @@
             </div>
 
             <div class="label-input">
-                <label for="">Responsavel:</label>
+                <label for="data_nascimento">Data de Nascimento:</label>
+                <input type="date" name="data_nascimento" >
+            </div>
+
+            <div class="label-input">
+                <label for="responsavel">Responsavel:</label>
                 <input type="text" name="responsavel" >
             </div>
 
             <div class="label-input">
-                <label for="">Telefone:</label>
+                <label for="telefone">Telefone:</label>
                 <input type="text" name="telefone" >
             </div>
 

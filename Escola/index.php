@@ -15,7 +15,11 @@ switch ($url) {
 
     case '/app/listagem':
         AlunoController::index();
-        break;    
+        break; 
+        
+    case '/app/aluno/save':
+        AlunoController::save();
+        break;
 
     default:
         echo 'Not Found! Erro 404';

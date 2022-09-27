@@ -20,6 +20,10 @@ switch ($url) {
     case '/app/aluno/save':
         AlunoController::save();
         break;
+    
+    case '/app/aluno/delete':
+        AlunoController::delete();
+        break;
 
     default:
         echo 'Not Found! Erro 404';

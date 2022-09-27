@@ -3,6 +3,10 @@
 class AlunoController {
 
     public static function index() {
+        include('Model/AlunoModel.php');
+
+        $model = new AlunoModel();
+        $model->getAllRows();
         
         include('View/Modules/Aluno/AlunoListagem.php');
     }
@@ -15,8 +19,6 @@ class AlunoController {
 
     public static function save() {
         
-        
-
         include 'Model/AlunoModel.php';
 
         $model = new AlunoModel();
@@ -32,6 +34,19 @@ class AlunoController {
         header("Location: /app/listagem");
 
     }
+
+    public static function delete() {
+        
+        include 'Model/AlunoModel.php';
+
+        $model = new AlunoModel();
+
+        $model->id = $_POST['id'];
+        $model->delete();
+
+    }
+
+    
 }
 
 ?>

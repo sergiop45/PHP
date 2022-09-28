@@ -22,6 +22,16 @@ class AlunoModel {
 
     }
 
+    public function getById(int $id) {
+        
+        include 'DAO/AlunoDao.php';
+
+        $dao = new AlunoDao();
+
+        return $dao->selectById($id);
+
+    }
+
     public function delete() {
 
         include 'DAO/AlunoDao.php';

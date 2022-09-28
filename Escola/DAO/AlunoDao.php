@@ -62,11 +62,25 @@ public function select() {
 
 }
 
+public function selectById(int $id) {
+
+    include_once "Model/AlunoModel.php";
+
+    $sql = "SELECT * FROM alunos WHERE id = ?";
+    $stmt = $this->conexao->prepare($sql);
+    $stmt->bindValue(1, $id);
+
+    $stmt->execute();
+
+    return $stmt->fetchObject("AlunoModel");
+
+}
+
 public function delete(int $id) {
 
     $sql = "DELETE FROM alunos WHERE id=? ;";
     $stmt = $this->conexao->prepare($sql);
-    $stmt->bindValue(1, $aluno->id);
+    $stmt->bindValue(1, $id);
 
     $stmt->execute();
 

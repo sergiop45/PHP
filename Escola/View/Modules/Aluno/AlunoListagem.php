@@ -20,6 +20,7 @@
 
         <?php 
             foreach ($model->rows as $item) {
+                var_dump($item->id);
         ?>
 
         <tr>
@@ -29,8 +30,12 @@
             <td><?= $item->responsavel ?></td>
             <td><?= $item->telefone ?></td>
             <td><?= $item->email ?></td>
-            <td><a href="app/aluno/delete">Delete</a></td>
-            <td><a href="/app/cadastro?id=<?= $item->id ?>">Editar</a></td>
+            <td><a href="/app/aluno/delete">Delete</a></td>
+            <td><form method="post" action="/app/cadastro">
+                <input type="hidden" value=<?=$item->id?> name="numero"/>
+                <button>Editar</button>
+                </form>
+            </td>
         </tr>
 
         <?php 

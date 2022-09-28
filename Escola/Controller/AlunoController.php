@@ -13,7 +13,16 @@ class AlunoController {
 
     public static function form() {
         
+        include('Model/AlunoModel.php');
+        $model = new AlunoModel();
+        
+        if(isset($_POST["numero"])) // Verificando se existe uma variável $_GET
+            $model = $model->getById( (int) $_POST["numero"]); 
+        
+        var_dump($model);
+       
         include('View/Modules/Aluno/AlunoForm.php');
+        
 
     }
 
